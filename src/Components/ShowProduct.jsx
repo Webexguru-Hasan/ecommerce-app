@@ -1,5 +1,6 @@
 import React from 'react'
 import { useState } from 'react'
+import { NavLink } from 'react-router-dom'
 
 
 
@@ -19,6 +20,7 @@ const ShowProduct = ({datas}) => {
 
              <div className='container'>
             <div className='row'>
+                <input type="range" min={0} max={100} step={1} />
                 <div className='col-12 text-center pt-5'>
                     <h1 className='fs-2 fw-semibold'>Latest Products</h1>
                 </div>
@@ -53,7 +55,7 @@ const ShowProduct = ({datas}) => {
                                 <div className="card-body">
                                     <h5 className="card-title">{product.title.substring(0, 12)}</h5>
                                     <p className="card-text fw-bold fs-4">{product.price}</p>
-                                    <a href="#" className="btn btn-dark">Buy Now</a>
+                                    <NavLink to={`/products/${product.id}`} className="btn btn-dark">Buy Now</NavLink>
                                 </div>
                             </div>
                             </div>
