@@ -7,11 +7,17 @@ import { NavLink } from 'react-router-dom'
 
 const ShowProduct = ({datas}) => {
     const [filterProduct, setFilterProduct] = useState(datas)
+    const [range, setRange] = useState()
+    console.log(range)
     
     const filterCategory = (cat) => {
         const updateList = datas.filter(({category}) => category === cat);
         setFilterProduct(updateList)
     }
+
+    const priceRange = (event) =>{
+        setRange( event.target.value)
+}
     
     return (
        
@@ -20,12 +26,13 @@ const ShowProduct = ({datas}) => {
 
              <div className='container'>
             <div className='row'>
-                <input type="range" min={0} max={100} step={1} />
+                
                 <div className='col-12 text-center pt-5'>
                     <h1 className='fs-2 fw-semibold'>Latest Products</h1>
                 </div>
             </div>
             <div className='row'>
+            <input type="range" min={0} max={100} step={1} onChange={priceRange}/>
                 <div className='col-12 d-flex justify-center py-5'>
                     <div>
                         <button className='btn btn-dark mx-2' onClick={() => setFilterProduct(datas)}>All</button>

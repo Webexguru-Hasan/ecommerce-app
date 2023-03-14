@@ -1,8 +1,14 @@
 import React from 'react'
 import {AiFillStar} from 'react-icons/ai'
+import { useDispatch } from 'react-redux'
 import { NavLink } from 'react-router-dom'
+import { addItem } from '../redux/action/action'
 
 const ShowSingleProduct = ({datas}) => {
+    const dispatch  = useDispatch()
+    const addProduct = (product) => {
+        dispatch(addItem(product))
+    }
     return (
         <div>
             <div className='row justify-content-between align-items-center'>
@@ -27,7 +33,7 @@ const ShowSingleProduct = ({datas}) => {
                     ${datas.price}
                 </h3>
                 <p className='fw-regular mt-2 text-success-50'>{datas.description}</p>
-                <button className='btn btn-dark mt-3'>Add to cart</button>
+                <button className='btn btn-dark mt-3' onClick={() => addProduct()}>Add to cart</button>
                 <NavLink to='/cart' className='btn btn-success mt-3 ms-4'>Go to Cart</NavLink>
 
                 </div>

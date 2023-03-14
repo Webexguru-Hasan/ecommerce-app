@@ -2,8 +2,11 @@ import React from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import navbar  from '../../Styles/Headar.module.css';
 import {BsFillCartCheckFill} from 'react-icons/bs'
+import { useSelector } from 'react-redux';
 
 const Headar = () => {
+    const state = useSelector((state) => state.handleCart)
+    console.log(state)
 
     let activeStyle = {
         textDecoration: "underline",
@@ -44,7 +47,7 @@ const Headar = () => {
                 <div className='d-flex justify-content-center align-items-center'>
                     <Link to='/login' className={navbar.login}>Login</Link>
                     <Link to='/register' className={navbar.login}>register</Link>
-                    <Link to='/cart'><BsFillCartCheckFill /></Link>
+                    <Link to='/cart'><BsFillCartCheckFill />cart({state.length})</Link>
                 </div>
             </div>
         </nav>

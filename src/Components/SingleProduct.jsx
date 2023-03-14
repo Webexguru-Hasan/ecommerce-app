@@ -7,7 +7,6 @@ import ShowSingleProduct from './ShowSingleProduct'
 const SingleProduct = () => {
     const {id} = useParams()
     const [product, setProduct] = useState([])
-    console.log(product)
     const [loading, setLoading] = useState(false)
 
     useEffect(() => {
